@@ -1,0 +1,197 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --ink: #2b1d0e;
+    --parchment-light: #f4e4bc;
+    --parchment-dark: #dcc28a;
+    --accent: #8b4513;
+    --gold: #c5a059;
+}
+
+html, body {
+    width: 100%; height: 100%;
+    overflow: hidden;
+    font-family: 'IM Fell English SC', serif;
+    background-color: var(--parchment-dark);
+}
+
+/* === Babylon Backdrop — Dust & Wind === */
+#renderCanvas {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+/* === Main UI Layer === */
+#overlay {
+    position: fixed; top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 10;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 20px;
+    background: 
+        radial-gradient(circle at center, transparent 40%, rgba(43, 29, 14, 0.15) 100%),
+        url('https://www.transparenttextures.com/patterns/old-map.png'); /* Subtle paper texture */
+    pointer-events: none;
+}
+
+/* === Navigation Header === */
+#navigationHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    padding: 0 30px;
+    pointer-events: none;
+}
+
+.main-title {
+    font-family: 'Pirata One', cursive;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    color: var(--ink);
+    line-height: 0.85;
+    letter-spacing: 0.1em;
+    filter: drop-shadow(2px 2px 0px rgba(255,255,255,0.3));
+}
+
+.compass-ornament {
+    font-size: 3.5rem;
+    filter: sepia(1) saturate(5);
+    animation: rotateCompass 20s infinite linear;
+}
+
+@keyframes rotateCompass {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.tagline {
+    font-size: 1.4rem;
+    color: var(--accent);
+    font-weight: bold;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* === Map Islands === */
+.map-island {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    width: 32%;
+    cursor: pointer;
+    pointer-events: all;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.map-island:hover {
+    transform: translateY(-20px) scale(1.05);
+}
+
+.island-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.realm-name {
+    font-size: 1.1rem;
+    color: var(--accent);
+    letter-spacing: 0.3em;
+}
+
+.country-name {
+    font-family: 'Uncial Antiqua', cursive;
+    font-size: 2.22rem;
+    color: var(--ink);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 5px;
+}
+
+.portal-container {
+    position: relative;
+    width: 100%;
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.3));
+}
+
+.map-island svg {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+}
+
+/* Inner World Appearance */
+#moroccoPath, #lebanonPath {
+    fill: var(--ink);
+    fill-opacity: 0.85;
+    stroke: var(--accent);
+    stroke-width: 4;
+    transition: all 0.6s ease;
+}
+
+.map-island:hover #moroccoPath {
+    fill: #8b1a1a;
+    fill-opacity: 1;
+    stroke: var(--gold);
+    filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.5));
+}
+
+.map-island:hover #lebanonPath {
+    fill: #1b5e35;
+    fill-opacity: 1;
+    stroke: var(--gold);
+    filter: drop-shadow(0 0 15px rgba(197, 160, 89, 0.5));
+}
+
+/* Game Pins (Dots inside the map) */
+.game-pin {
+    fill: var(--gold);
+    stroke: white;
+    stroke-width: 2;
+    opacity: 0;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.map-island:hover .game-pin {
+    opacity: 1;
+    animation: pinDrop 0.6s backwards;
+}
+
+@keyframes pinDrop {
+    0% { transform: translateY(-50px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+.game-pin:hover {
+    fill: white;
+    r: 10;
+}
+
+.explore-hint {
+    font-size: 1.2rem;
+    color: var(--accent);
+    opacity: 0;
+    transition: 0.3s;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+}
+
+.map-island:hover .explore-hint {
+    opacity: 1;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+    #overlay { flex-direction: column; overflow-y: auto; padding: 100px 20px; }
+    .map-island { width: 80%; }
+    #navigationHeader { order: -1; }
+}
