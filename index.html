@@ -134,11 +134,20 @@ c-21 43 -23 45 -64 45 -67 0 -109 40 -152 145 -50 124 -87 185 -120 196 -14 5
 
     <script src="main.js" type="module"></script>
     <script>
-        document.querySelectorAll('.map-island').forEach(island => {
-            island.addEventListener('click', () => {
-                const name = island.querySelector('.country-name').textContent;
-                alert('Zipping into the world of ' + name + '...');
-            });
+        const moroccoIsland = document.getElementById('moroccoIsland');
+        const lebanonIsland = document.getElementById('lebanonIsland');
+
+        moroccoIsland.addEventListener('click', () => {
+             alert('Exploring Morocco is coming soon!');
+        });
+
+        lebanonIsland.addEventListener('click', () => {
+             // Transition to 3D Board
+             if (window.switchToLebanon) {
+                 window.switchToLebanon();
+             } else {
+                 alert('Lebanon Board loading...');
+             }
         });
     </script>
 </body>
