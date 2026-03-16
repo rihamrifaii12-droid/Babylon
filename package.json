@@ -1,0 +1,19 @@
+{
+  "name": "babylon",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.0.0"
+  },
+  "dependencies": {
+    "babylonjs": "^8.55.2",
+    "babylonjs-gui": "^8.55.2",
+    "babylonjs-loaders": "^8.55.2"
+  }
+}
