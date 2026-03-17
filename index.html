@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Explorer Quests: The Hidden Realms</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Pirata+One&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=Pirata+One&family=IM+Fell+English+SC&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.babylonjs.com/babylon.js"></script>
 </head>
+
 <body>
     <!-- Babylon parchment atmosphere -->
     <canvas id="renderCanvas"></canvas>
@@ -23,22 +27,17 @@
             </div>
             <div class="portal-container">
                 <svg id="moroccoSVG" viewBox="0 0 550 520" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <!-- We'll use this pattern for the "world inside" look in CSS -->
-                        <pattern id="patternMorocco" patternUnits="userSpaceOnUse" width="600" height="600">
-                             <image xlink:href="https://images.unsplash.com/photo-1539050611880-91124 visual representation" x="0" y="0" width="600" height="600" opacity="0.8" />
-                        </pattern>
-                    </defs>
+                    
                     <path id="moroccoPath" d="
                         M 393,23 L 413,37 L 443,35 L 476,42 L 490,42 L 502,63 L 504,82 L 515,116 
                         L 524,123 L 518,135 L 476,141 L 462,152 L 443,155 L 442,179 L 405,191 
-                        L 392,207 L 366,216 L 334,221 L 302,245 L 282,282 L 283,320 l -5,0 l 0,0 
-                        l 1,17 L 258,301 L 248,308 L 233,308 L 222,304 L 200,307 L 185,332 
-                        L 175,335 L 160,375 L 115,410 L 105,454 L 92,468 L 88,480 L 16,482 
-                        L 15,482 L 17,467 L 29,459 L 40,442 L 37,431 L 48,409 L 66,388 L 77,383 
-                        L 85,364 L 86,347 L 98,327 L 119,316 L 140,283 L 140,283 L 156,270 
-                        L 186,267 L 211,245 L 227,236 L 254,210 L 246,170 L 258,142 L 262,125 
-                        L 283,104 L 315,89 L 339,76 L 362,43 Z
+                        L 392,207 L 366,216 L 334,221 L 302,245 L 282,282 L 250,320 L 250,320 
+                        L 240,301 L 250,308 L 250,308 L 250,304 L 250,307 L 250,332 L 200,335 
+                        L 200,375 L 200,410 L 200,454 L 184,468 L 176,480 L 32,482 L 15,482 
+                        L 17,467 L 29,459 L 40,442 L 37,431 L 48,409 L 66,388 L 77,383 L 85,364 
+                        L 86,347 L 98,327 L 119,316 L 140,283 L 156,270 L 186,267 L 211,245 
+                        L 227,236 L 254,210 L 246,170 L 258,142 L 262,125 L 283,104 L 315,89 
+                        L 339,76 L 362,43 Z
                     " />
                     <!-- Map pins / games -->
                     <circle cx="280" cy="180" r="8" class="game-pin" data-name="The Ancient City" />
@@ -125,7 +124,8 @@ c-21 43 -23 45 -64 45 -67 0 -109 40 -152 145 -50 124 -87 185 -120 196 -14 5
 -145 -32 -211 3 -27 15 -57 27 -65 27 -8 0 -23 -9 -32 -20z" />
                     </g>
                     <!-- Map pins -->
-                    <circle cx="750" cy="200" r="100" class="game-pin" data-name="Mountain Quest" transform="scale(0.1, 0.1) translate(0, 1024)" />
+                    <circle cx="750" cy="200" r="100" class="game-pin" data-name="Mountain Quest"
+                        transform="scale(0.1, 0.1) translate(0, 1024)" />
                 </svg>
             </div>
             <p class="explore-hint">Press to Enter Realm</p>
@@ -138,17 +138,18 @@ c-21 43 -23 45 -64 45 -67 0 -109 40 -152 145 -50 124 -87 185 -120 196 -14 5
         const lebanonIsland = document.getElementById('lebanonIsland');
 
         moroccoIsland.addEventListener('click', () => {
-             alert('Exploring Morocco is coming soon!');
+            alert('Exploring Morocco is coming soon!');
         });
 
         lebanonIsland.addEventListener('click', () => {
-             // Transition to 3D Board
-             if (window.switchToLebanon) {
-                 window.switchToLebanon();
-             } else {
-                 alert('Lebanon Board loading...');
-             }
+            // Transition to 3D Board
+            if (window.switchToLebanon) {
+                window.switchToLebanon();
+            } else {
+                alert('Lebanon Board loading...');
+            }
         });
     </script>
 </body>
+
 </html>
