@@ -131,14 +131,23 @@ c-21 43 -23 45 -64 45 -67 0 -109 40 -152 145 -50 124 -87 185 -120 196 -14 5
             <p class="explore-hint">Press to Enter Realm</p>
         </div>
     </div>
+    
+    <div id="boardUI" style="display:none; opacity:0; transition: opacity 0.5s ease;">
+        <button id="backToMap" class="premium-btn">← Retourner à la Carte</button>
+    </div>
 
     <script src="main.js" type="module"></script>
+    <script src="morocco.js" type="module"></script>
     <script>
         const moroccoIsland = document.getElementById('moroccoIsland');
         const lebanonIsland = document.getElementById('lebanonIsland');
 
         moroccoIsland.addEventListener('click', () => {
-            alert('Exploring Morocco is coming soon!');
+            if (window.switchToMorocco) {
+                window.switchToMorocco();
+            } else {
+                alert('Morocco Board loading...');
+            }
         });
 
         lebanonIsland.addEventListener('click', () => {

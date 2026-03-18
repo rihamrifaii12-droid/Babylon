@@ -189,9 +189,33 @@ html, body {
     opacity: 1;
 }
 
-/* Mobile */
-@media (max-width: 900px) {
-    #overlay { flex-direction: column; overflow-y: auto; padding: 100px 20px; }
-    .map-island { width: 80%; }
-    #navigationHeader { order: -1; }
+
+/* === Premium Board UI === */
+#boardUI {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 100;
+}
+
+.premium-btn {
+    background: rgba(43, 29, 14, 0.8);
+    color: var(--parchment-light);
+    border: 2px solid var(--gold);
+    padding: 12px 24px;
+    font-family: 'Uncial Antiqua', cursive;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.premium-btn:hover {
+    background: var(--gold);
+    color: var(--ink);
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.6);
 }
